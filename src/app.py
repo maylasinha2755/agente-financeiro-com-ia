@@ -35,22 +35,31 @@ pergunta = st.chat_input("Digite sua pergunta sobre suas finanças...")
 
 # Processa a pergunta do usuário
 if pergunta:
-    # Salva e exibe a mensagem do usuário
-    st.session_state.mensagens.append(
-        {"role": "user", "content": pergunta}
-    )
-
+    # Exibe a mensagem do usuário
     with st.chat_message("user"):
         st.markdown(pergunta)
 
-    # Gera a resposta do OrganizaFin
-    with st.chat_message("assistant"):
-        with st.spinner("Analisando suas informações..."):
-            resposta = responder(pergunta)
+    try:
+        # Gera a resposta do OrganizaFin
+        with st.chat_message("assistant"):
+            with st.spinner("Analisando suas informações..."):
+                resposta = responder(pergunta)
 
-        st.markdown(resposta)
+            st.markdown(resposta)
 
-    # Salva a resposta no histórico
-    st.session_state.mensagens.append(
-        {"role": "assistant", "content": resposta}
-    )
+        # Salva a conversa somente após a resposta ser gerada com sucesso
+        st.session_state.mensagens.append(
+            {"role": "user", "content": pergunta}
+        )
+
+        st.session_state.mensagens.append(
+            {"role": "assistant", "content": resposta}
+        )
+
+    except Exception as erro:
+        st.error(
+            "Não foi possível gerar a resposta no momento. "
+            "Tente novamente em alguns instantes."
+        )
+
+        print(f"Erro ao gerar resposta: {erro}")
