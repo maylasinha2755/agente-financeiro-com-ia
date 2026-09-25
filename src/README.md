@@ -74,7 +74,14 @@ Normalmente, a aplicação poderá ser acessada em:
 
 ```text
 http://localhost:8501
+
 ```
+
+## Aplicação em Funcionamento
+
+A imagem abaixo apresenta o OrganizaFin em execução, realizando uma análise dos dados financeiros disponíveis na base de conhecimento.
+
+<img width="827" height="691" alt="image" src="https://github.com/user-attachments/assets/06ba277a-30cc-4357-b160-c62563f1bd9e" />
 
 ---
 
