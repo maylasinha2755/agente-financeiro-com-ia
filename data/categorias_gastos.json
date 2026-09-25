@@ -1,0 +1,32 @@
+[
+  {
+    "categoria": "moradia",
+    "descricao": "Despesas relacionadas à residência",
+    "exemplos": ["Aluguel", "Condomínio", "Energia", "Água"]
+  },
+  {
+    "categoria": "alimentacao",
+    "descricao": "Despesas relacionadas à alimentação",
+    "exemplos": ["Supermercado", "Restaurante", "Padaria"]
+  },
+  {
+    "categoria": "transporte",
+    "descricao": "Despesas relacionadas a deslocamento e transporte",
+    "exemplos": ["Combustível", "Uber", "Ônibus"]
+  },
+  {
+    "categoria": "saude",
+    "descricao": "Despesas relacionadas à saúde e bem-estar",
+    "exemplos": ["Farmácia", "Consulta médica", "Academia"]
+  },
+  {
+    "categoria": "lazer",
+    "descricao": "Despesas relacionadas a entretenimento e lazer",
+    "exemplos": ["Streaming", "Cinema", "Restaurante"]
+  },
+  {
+    "categoria": "contas",
+    "descricao": "Despesas recorrentes de serviços",
+    "exemplos": ["Internet", "Telefone", "Energia"]
+  }
+]
