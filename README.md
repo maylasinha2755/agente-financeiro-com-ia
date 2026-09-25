@@ -1,149 +1,225 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 💰 OrganizaFin — Assistente Inteligente de Organização Financeira Pessoal
 
-## Contexto
+## Sobre o Projeto
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+O **OrganizaFin** é um assistente virtual desenvolvido com Inteligência Artificial Generativa para ajudar usuários a compreender e organizar melhor suas finanças pessoais.
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+A solução analisa informações como receitas, despesas, categorias de gastos, metas de economia e limites de orçamento, transformando dados financeiros em respostas simples e fáceis de compreender.
 
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+O projeto foi desenvolvido como parte do desafio **Construa Seu Assistente Virtual com Inteligência Artificial**, da DIO.
 
 ---
 
-## O Que Você Deve Entregar
+## 🎯 Problema
 
-### 1. Documentação do Agente
+Muitas pessoas sabem quanto recebem, mas têm dificuldade para visualizar para onde o dinheiro está indo e quanto realmente sobra no fim do mês.
 
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+O OrganizaFin busca facilitar essa compreensão, permitindo que o usuário consulte seus dados financeiros por meio de uma conversa em linguagem natural.
 
 ---
 
-### 2. Base de Conhecimento
+## 🤖 Como Funciona
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+O usuário realiza perguntas diretamente pelo chatbot, como:
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+- "Quanto gastei com alimentação neste mês?"
+- "Quanto gastei no total?"
+- "Minhas despesas estão dentro do meu limite de orçamento?"
+- "Com minhas despesas deste mês, consigo guardar R$ 500,00?"
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
+O OrganizaFin consulta os dados disponíveis em sua base de conhecimento e utiliza Inteligência Artificial para gerar respostas claras e contextualizadas.
 
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+O agente foi configurado para não inventar informações quando os dados forem insuficientes e para respeitar os limites definidos para sua atuação.
 
 ---
 
-### 3. Prompts do Agente
+## 🖥️ Aplicação
 
-Documente os prompts que definem o comportamento do seu agente:
+A interface do OrganizaFin foi desenvolvida utilizando **Streamlit** e permite conversar diretamente com o agente.
 
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
+![OrganizaFin em funcionamento](./assets/organizafin-chat.png)
 
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
+> A imagem acima apresenta o OrganizaFin em funcionamento, utilizando os dados disponíveis na base de conhecimento para realizar uma análise financeira.
 
 ---
 
-### 4. Aplicação Funcional
+## 🧠 Tecnologias Utilizadas
 
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
+- **Python** — desenvolvimento da aplicação;
+- **Streamlit** — interface do chatbot;
+- **Gemini** — modelo de Inteligência Artificial Generativa;
+- **Google GenAI SDK** — integração com a API do Gemini;
+- **CSV e JSON** — armazenamento da base de conhecimento;
+- **python-dotenv** — gerenciamento da variável de ambiente da API.
 
 ---
 
-### 6. Pitch
+## 📚 Base de Conhecimento
 
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
+O agente utiliza dados mockados para simular um cenário de organização financeira pessoal.
 
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
+A base contém:
 
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
+- Perfil financeiro do usuário;
+- Histórico de transações;
+- Categorias de gastos;
+- Histórico de atendimentos.
 
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+Essas informações permitem que o OrganizaFin realize cálculos e análises com base nos dados disponíveis.
 
 ---
 
-## Estrutura do Repositório
+## 🔒 Segurança e Limitações
 
+O OrganizaFin foi desenvolvido com regras para aumentar a segurança e a confiabilidade das respostas.
+
+O agente:
+
+- Não inventa receitas, despesas ou transações;
+- Informa quando não possui dados suficientes;
+- Não solicita senhas ou dados bancários confidenciais;
+- Não realiza transações ou movimentações financeiras;
+- Não recomenda investimentos ou produtos financeiros específicos;
+- Não promete resultados financeiros futuros.
+
+O objetivo do OrganizaFin é auxiliar na compreensão e organização das finanças pessoais, sem substituir, quando necessário, a orientação de um profissional financeiro.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+agente-financeiro-com-ia/
+│
+├── README.md
+│
+├── .gitignore
+│
+├── data/
+│   ├── categorias_gastos.json
+│   ├── historico_atendimento.csv
+│   ├── perfil_financeiro.json
+│   └── transacoes.csv
+│
+├── docs/
+│   ├── 01-documentacao-agente.md
+│   ├── 02-base-conhecimento.md
+│   ├── 03-prompts.md
+│   ├── 04-metricas.md
+│   └── 05-pitch.md
+│
+├── src/
+│   ├── app.py
+│   ├── agente.py
+│   ├── config.py
+│   ├── requirements.txt
+│   └── README.md
+│
+└── assets/
+    ├── README.md
+    ├── RoteiroLab.md
+    ├── organizafin-chat.png
+    └── OrganizaFin.mp4
+
+---
+
+## 📄 Documentação
+
+O desenvolvimento do OrganizaFin foi dividido nas seis etapas propostas pelo desafio:
+
+| Etapa | Documentação |
+|---|---|
+| 1. Documentação do Agente | [`01-documentacao-agente.md`](./docs/01-documentacao-agente.md) |
+| 2. Base de Conhecimento | [`02-base-conhecimento.md`](./docs/02-base-conhecimento.md) |
+| 3. Prompts do Agente | [`03-prompts.md`](./docs/03-prompts.md) |
+| 4. Aplicação Funcional | [`src/`](./src/) |
+| 5. Avaliação e Métricas | [`04-metricas.md`](./docs/04-metricas.md) |
+| 6. Pitch | [`05-pitch.md`](./docs/05-pitch.md) |
+
+---
+
+## 📊 Avaliação
+
+O OrganizaFin foi submetido a **10 cenários de teste**, envolvendo cálculos financeiros, consultas à base de conhecimento, segurança e perguntas fora do escopo.
+
+Os **10 testes apresentaram o comportamento esperado**, incluindo:
+
+- Cálculo de gastos por categoria;
+- Cálculo das despesas totais;
+- Verificação da meta de economia;
+- Comparação com o limite de orçamento;
+- Tratamento de informações inexistentes;
+- Proteção contra solicitação de dados bancários confidenciais;
+- Tratamento de perguntas fora do escopo.
+
+Os detalhes dos testes estão disponíveis em [`docs/04-metricas.md`](./docs/04-metricas.md).
+
+---
+
+## ▶️ Como Executar
+
+### 1. Instale as dependências
+
+Na raiz do projeto, execute:
+
+```bash
+python -m pip install -r src/requirements.txt
 ```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+
+### 2. Configure a API
+
+Crie um arquivo `.env` na raiz do projeto e adicione sua chave da API do Gemini:
+
+```env
+GEMINI_API_KEY=sua_chave_aqui
+```
+
+> **Importante:** nunca publique sua chave da API no GitHub. O arquivo `.env` está incluído no `.gitignore` do projeto.
+
+### 3. Execute a aplicação
+
+```bash
+python -m streamlit run src/app.py
+```
+
+Após iniciar a aplicação, o Streamlit disponibilizará um endereço local para acessar o OrganizaFin pelo navegador.
+
+Normalmente:
+
+```text
+http://localhost:8501
 ```
 
 ---
 
-## Dicas Finais
+## 🎥 Pitch
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+O OrganizaFin também foi apresentado em um pitch de até **3 minutos**, mostrando o problema identificado, a solução desenvolvida, o agente funcionando na prática e seus principais diferenciais e impactos.
+
+▶️ **Assista ao vídeo do projeto:**  
+[▶️ Assistir ao Pitch do OrganizaFin](./assets/OrganizaFin.mp4)
+
+A documentação completa do pitch está disponível em:
+
+➡️ [`docs/05-pitch.md`](./docs/05-pitch.md)
+
+---
+
+## 🚀 Possíveis Evoluções
+
+Como próximos passos, o OrganizaFin poderá ser expandido com:
+
+- Novos cenários e categorias financeiras;
+- Análises de diferentes períodos;
+- Suporte a diferentes perfis financeiros;
+- Novas métricas de avaliação;
+- Monitoramento de tempo de resposta e disponibilidade da API;
+- Evolução da interface e das visualizações financeiras.
+
+---
+
+## 👩‍💻 Autora
+
+Projeto desenvolvido por **Mayla Carneiro de Queiroz** como parte do desafio da DIO.
+
+**💰 OrganizaFin — seus dados financeiros transformados em informações que você entende.**
